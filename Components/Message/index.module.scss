@@ -1,0 +1,186 @@
+/* Container positioning and toggle button */
+.container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 30%; /* Adjust as needed */
+  height: 400px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 999999; /* Ensure it stays on top of other content */
+}
+
+/* Toggle button styling */
+.toggleButton {
+  position: absolute; /* Position the toggle button within the container */
+  bottom: 0px; /* Align to the bottom of the container */
+  right: 0px; /* Align to the right of the container */
+  background-color: #3498db; /* Button color */
+  color: white; /* Text color */
+  // border-radius: 50%; /* Circular button */
+  padding: 10px; /* Padding for button size */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for the button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000; /* Ensure it stays above the chat box */
+  font-size: 16px; /* Font size for the icon */
+  gap: 10px;
+}
+
+
+/* Open and closed states for the chatbox */
+.open {
+  transform: translateY(0); /* Ensure the chatbox is visible */
+  opacity: 1;
+}
+
+.closed {
+  transform: translateY(100%); /* Hide the chatbox by moving it out of view */
+  opacity: 0;
+}
+
+/* Message form styling */
+.message-form {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Increase height to make space for the send button */
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Shadow for the chatbox */
+  overflow: hidden;  /* Hide overflow to keep rounded corners clean */
+  padding-bottom: 50px; /* Ensure space for the send button */
+}
+
+/* Message container styling */
+.message-container {
+  flex: 1;                /* Grow to fill available space */
+  overflow-y: auto;       /* Allow vertical scrolling */
+  padding: 10px;          /* Padding inside the message container */
+  background-color: #ffffff; /* Background color of message container */
+  display: flex;
+  flex-direction: column; /* Stack messages vertically */
+  align-items: flex-start; /* Default alignment for received messages */
+}
+
+/* Form group styling */
+.form-group {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  padding: 10px;         /* Padding around the form elements */
+  border-top: 1px solid #ddd; /* Top border */
+  position: relative; /* Ensure positioning context for send button */
+}
+
+/* Textarea styling */
+.textarea {
+  width: calc(100% - 50px); /* Full width minus icon space */
+  padding: 10px;       /* Padding inside textarea */
+  border: 1px solid #ddd; /* Border color */
+  border-radius: 4px;  /* Rounded corners */
+  resize: none;        /* Prevent resizing */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Send icon styling */
+.send-icon {
+  position: absolute; /* Absolute positioning inside form container */
+  bottom: 10px; /* Align to bottom of the form container */
+  right: 10px; /* Align to right of the form container */
+  background-color: #3498db; /* Background color */
+  color: white; /* Icon color */
+  border-radius: 50%; /* Circular icon */
+  padding: 8px; /* Padding for icon size */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100; /* Ensure it stays above other content */
+  font-size: 24px; /* Font size for the icon */
+}
+
+/* Additional styling for the icon itself */
+.icon {
+  height: 24px; /* Icon height */
+  width: 24px; /* Icon width */
+  color: #ffffff; /* Icon color */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+}
+
+/* Add hover effects to the icon */
+.send-icon:hover .icon {
+  color: #ffeb3b; /* Change color on hover */
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Message styling */
+.message {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  position: relative;
+  max-width: 75%;
+  word-wrap: break-word;
+  transition: transform 0.2s ease; /* Animation for hover effect */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
+  /* Ensure message text doesn't overflow */
+  overflow-wrap: break-word; /* Ensure text wraps correctly */
+}
+
+/* Received message styling */
+.received {
+  background-color: #2dc0ca; /* Color for received messages */
+  color: #333; /* Darker text color for received messages */
+  align-self: flex-start; /* Align to the left */
+  margin-right: auto; /* Push to the left edge */
+  align-items: flex-start; /* Align items to the start (left) */
+}
+
+/* Additional styling for specific elements */
+.sevillanaregular {
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.heading h2 {
+  color: #006739;
+  font-size: 25px;
+}
+
+.error {
+  color: red; /* Red color for the error message */
+  margin-top: 5px; /* Space above the error message */
+  font-size: 14px; /* Adjust font size */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    width: 60%;
+   /* Adjust as needed */
+  }
+
+  .message-form {
+    height: calc(100% - 50px); /* Adjust height to accommodate for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 70%; /* Adjust as needed */
+    height: 500px; /* Adjust as needed */
+    padding: 0px;
+  }
+
+  .send-icon {
+    padding: 5px; /* Padding for icon size */
+    font-size: 16px; /* Font size for the icon */
+  }
+}
